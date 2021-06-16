@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title Weather
+    body 
+        div(style={width: '60%', margin: '0 auto'})
+            div
+                form(action="/ps4/searchWeatherThree", method="post", onsubmit="return true") 
+                    p
+                        | city name:  
+                        |
+                        input(type="text",name='q')  
+                        |
+                        |
+                        button(type='submit') Search 
+            if data            
+                if !data.state
+                    p #{data.message}
+                else 
+                    div
+                        h2  City info
+                        p   name :    #{data.name}
+                        h2  Weather info
+                        p   weather : #{data.weather[0].main} 
+                        p   weather description : #{data.weather[0].description}
+                        p   temp : #{data.main.temp} °c
+                        p   wind : #{data.wind.speed} m/s
+                        p   clouds : #{data.clouds.all}
+                    //- #{JSON.stringify(data)} 
+
+
+        

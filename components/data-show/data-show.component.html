@@ -1,0 +1,18 @@
+<div>
+  <div *ngIf="!dataList.length">not data</div>
+  <div *ngIf="dataList.length">
+    <div>
+      <div *ngFor="let item of dataList">
+        <p>is redis cache : {{ item.isCache }}</p>
+        <h2>City info</h2>
+        <p>name : {{ item.name }}</p>
+        <h2>Weather info</h2>
+        <p>weather : {{ item.weather[0]?.main }}</p>
+        <p>weather description : {{ item.weather[0]?.description }}</p>
+        <p>temp : {{ item.main.temp }} °c</p>
+        <p>wind : {{ item.wind.speed }} m/s</p>
+        <p>clouds : {{ item.clouds.all }}</p>
+      </div>
+    </div>
+  </div>
+</div>
